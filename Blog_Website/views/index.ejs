@@ -1,0 +1,31 @@
+<div class="container-2">
+    <div class="heading-2">
+        <h1>Welcome to our blog</h1>
+        <a class="btn btn_success" href="/article/new">New Article</a>
+    </div>
+<div class="blog">
+<% article.forEach(element => { %>
+    <div class="blog_post">
+        <h1><%= element.title %> </h1>
+        <p><%= element.content.substring(0,200).concat('...')%></p>
+        <h5><i><%= element.createdDate.toLocaleDateString()%></i></h5>
+        
+    </div>
+<div class="buttons">
+<a class="success_btn" href="/article/<%= element.slug %>">
+    Read more
+</a>
+
+<a class="btn btn_info" href="/article/edit/<%= element.id %>">
+    Edit
+</a>
+
+<a class="btn btn_danger" href="/article/delete/<%= element.id %>">
+    Delete
+</a>
+
+</div>
+
+<% }); %>
+</div>
+</div>
